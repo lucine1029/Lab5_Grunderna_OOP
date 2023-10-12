@@ -8,19 +8,18 @@ namespace Lab5_Grunderna_OOP
 {
     internal class Triangle
     {
-        public int BaseLenght { get; set; }
-        public int Height { get; set; }
+        public int BaseLenght { get; private set; }
+        public int Height { get; private set; }
         public Triangle(int baseLenght, int height) 
         { 
             BaseLenght = baseLenght;
             Height = height;
         }
-        public double GetArea() 
+        public void GetArea() 
         { 
-            return 0.5 * BaseLenght * Height;
+            double area = 0.5 * BaseLenght * Height;
+            Console.WriteLine($"The triangle has baselenght {BaseLenght} cm and height {Height} cm, " +
+                $"and it's area is {area} cm².");
         }
-        
-
-
     }
 }

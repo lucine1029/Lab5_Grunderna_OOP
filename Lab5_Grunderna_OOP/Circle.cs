@@ -3,29 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace Lab5_Grunderna_OOP
 {
     internal class Circle
     {
-        public int Radius { get; set; }
+        public int Radius { get; private set; }
         public Circle(int radius)
         {
             Radius = radius;
         }
-        public double GetArea()
+        public void GetArea()
         {
-            return Radius * Radius * Math.PI;
+            double area = Math.Pow(Radius, 2) * Math.PI;
+            Console.WriteLine($"The circle has radius of {Radius} cm, the area is {area:0.00} cm²");
         }
-        public double GetCircumference()
+        public void GetCircumference()
         {
-            return 2 * Radius * Math.PI;
+            double circuference = 2 * Radius * Math.PI;
+            Console.WriteLine($"The circumference is {circuference:0.00} cm");
         }
-        public double GetVolume() 
+        public void GetVolume() 
         { 
-            return ((double) 4/3) * Math.Pow(Radius, 3) * Math.PI;
-        
+            double volume = ((double)4 / 3) * Math.Pow(Radius, 3) * Math.PI;
+            Console.WriteLine($"The volume is {volume:0.00} cm³");
         }
     }
 }
